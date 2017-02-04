@@ -52,7 +52,7 @@ public class ColourPicker {
                 BufferedImage image=robot.createScreenCapture(new Rectangle(MouseInfo.getPointerInfo().getLocation(), new Dimension(10,10)));
                 panel.removeAll();
                 panel.add(new JLabel(new ImageIcon(image.getScaledInstance(panel.getWidth(), panel.getHeight(), BufferedImage.SCALE_FAST))), BorderLayout.CENTER);
-                label.setText("R="+colour.getRed() + ", G=" + colour.getGreen() + ", B=" + colour.getBlue());
+                label.setText(colour.getRed() + ", " + colour.getGreen() + ", " + colour.getBlue());
                 panel.validate();
                 Thread.sleep(10);
             }
