@@ -23,10 +23,9 @@ import javax.swing.SwingConstants;
 
 public class ColourPicker {
 
-    public static void main(String args[]) {
+    private ColourPicker() {
 
         try {
-
             Robot robot = new Robot();
             Color colour;
 
@@ -61,5 +60,9 @@ public class ColourPicker {
         } catch (AWTException ex) {
             Logger.getLogger(ColourPicker.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+
+    public static void main(String args[]) {
+        ColourPicker picker = new ColourPicker();
     }
 }
