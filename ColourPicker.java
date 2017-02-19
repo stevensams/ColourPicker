@@ -25,26 +25,26 @@ public class ColourPicker {
 
     private ColourPicker() {
 
+        Color colour;
+
+        JPanel panel = new JPanel();
+        panel.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
+        panel.setLayout(new BorderLayout());
+
+        JLabel label = new JLabel();
+        label.setHorizontalTextPosition(SwingConstants.CENTER);
+
+        JWindow frame = new JWindow();
+        frame.setLayout(new BorderLayout());
+        frame.setPreferredSize(new Dimension(128, 128));
+        frame.setAlwaysOnTop(true);
+        frame.add(panel, BorderLayout.CENTER);
+        frame.add(label, BorderLayout.SOUTH);
+        frame.pack();
+        frame.setVisible(true);
+
         try {
             Robot robot = new Robot();
-            Color colour;
-
-            JPanel panel = new JPanel();
-            panel.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));          
-            panel.setLayout(new BorderLayout());
-            
-            JLabel label = new JLabel();
-            label.setHorizontalTextPosition(SwingConstants.CENTER);
-            
-            JWindow frame = new JWindow();
-            frame.setLayout(new BorderLayout());
-            frame.setPreferredSize(new Dimension(128, 128));
-            frame.setAlwaysOnTop(true);
-            frame.add(panel, BorderLayout.CENTER);
-            frame.add(label, BorderLayout.SOUTH);
-            frame.pack();
-            frame.setVisible(true);
-
             while (true) {
                 colour = robot.getPixelColor(MouseInfo.getPointerInfo().getLocation().x, MouseInfo.getPointerInfo().getLocation().y);
                 frame.setLocation(MouseInfo.getPointerInfo().getLocation().x + 10, MouseInfo.getPointerInfo().getLocation().y - 10);
